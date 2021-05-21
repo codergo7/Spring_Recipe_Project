@@ -4,6 +4,7 @@ package com.go.recipe.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -22,6 +23,8 @@ public class Recipe {
     private String direction;
 //  private Difficulty difficulty
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
     @Lob
     private Byte[] image;
 
