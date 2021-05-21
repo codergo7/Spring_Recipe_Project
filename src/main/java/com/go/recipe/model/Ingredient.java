@@ -2,10 +2,7 @@ package com.go.recipe.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 
@@ -18,9 +15,9 @@ public class Ingredient {
     private String description;
     private BigDecimal amount;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private UniteOfMeasure uom;
+
     @ManyToOne
     private Recipe recipe;
-
-
-
 }
