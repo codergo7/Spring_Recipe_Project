@@ -1,6 +1,7 @@
 package com.go.recipe.model;
 
 
+import com.go.recipe.model.enums.Difficulty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,10 +22,13 @@ public class Recipe {
     private String source;
     private String url;
     private String direction;
-//  private Difficulty difficulty
+
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
+
     @Lob
     private Byte[] image;
 
