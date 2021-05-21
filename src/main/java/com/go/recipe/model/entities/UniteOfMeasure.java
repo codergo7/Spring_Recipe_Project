@@ -1,4 +1,4 @@
-package com.go.recipe.model;
+package com.go.recipe.model.entities;
 
 import lombok.Data;
 
