@@ -1,6 +1,5 @@
 package com.go.recipe.model.entities;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,10 +10,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Category extends BaseEntity{
+
     private String description;
 
     @ManyToMany(mappedBy = "categories")
