@@ -2,9 +2,8 @@ package com.go.recipe.model.entities;
 
 
 import com.go.recipe.model.enums.Difficulty;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,6 +12,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@SuperBuilder
+@NoArgsConstructor
 public class Recipe extends BaseEntity{
 
     private String description;
