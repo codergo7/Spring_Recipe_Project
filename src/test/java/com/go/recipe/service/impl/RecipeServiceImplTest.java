@@ -8,10 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -43,5 +40,19 @@ class RecipeServiceImplTest {
 
         assertEquals(1,recipes.size());
         verify(recipeRepository, times(1)).findAll();
+    }
+
+    @Test
+    void getRecipeByIdTest(){
+        Recipe recipe = Recipe.builder().id(1L).build();
+
+        when(recipeRepository.findById(anyLong())).thenReturn(Optional.of(recipe));
+
+        Recipe recipeReturned = recipeService.findById(recipe.getId());
+
+        assertNotNull(recipeReturned);
+        verify(recipeRepository, times(1)).findById(anyLong());
+        verify(recipeRepository, never()).findAll();
+
     }
 }
