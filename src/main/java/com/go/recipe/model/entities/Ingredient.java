@@ -1,5 +1,6 @@
 package com.go.recipe.model.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
 @Setter
 @SuperBuilder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Ingredient extends BaseEntity {
 
     private String description;
@@ -24,11 +26,4 @@ public class Ingredient extends BaseEntity {
 
     @ManyToOne
     private Recipe recipe;
-
-    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
-        this.description = description;
-        this.amount = amount;
-        this.uom = uom;
-        this.recipe = recipe;
-    }
 }

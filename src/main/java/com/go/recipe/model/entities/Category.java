@@ -12,6 +12,7 @@ import java.util.Set;
 @Setter
 @SuperBuilder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Category extends BaseEntity{
 
     private String description;
