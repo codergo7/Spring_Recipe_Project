@@ -1,5 +1,8 @@
 package com.go.recipe.service.impl;
 
+import com.go.recipe.converters.RecipeCommandToRecipe;
+import com.go.recipe.converters.RecipeToRecipeCommand;
+import com.go.recipe.mappers.RecipeMapper;
 import com.go.recipe.model.entities.Recipe;
 import com.go.recipe.repository.RecipeRepository;
 import com.go.recipe.service.RecipeService;
@@ -20,11 +23,17 @@ class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe,recipeToRecipeCommand);
     }
 
     @Test
