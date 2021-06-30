@@ -1,9 +1,8 @@
 package com.go.recipe.commands;
 
 import com.go.recipe.model.enums.Difficulty;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,5 +24,4 @@ public class RecipeCommand {
     private Difficulty difficulty;
     private NotesCommand notes;
     private Set<CategoryCommand> categories = new HashSet<>();
-
 }
